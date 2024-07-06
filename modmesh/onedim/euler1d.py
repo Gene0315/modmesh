@@ -38,6 +38,7 @@ class Euler1DSolver:
         svr = _impl.Euler1DCore(ncoord=ncoord, time_increment=time_increment)
 
         # Initialize spatial grid.
+        svr.pt_plot[...] = np.linspace(2, (ncoord - 3), num=((ncoord - 3) // 2), dtype=int)
         svr.coord[...] = np.linspace(xmin, xmax, num=ncoord)
 
         # Initialize field.
@@ -311,7 +312,7 @@ class ShockTube:
         :return: None
         """
         if None is coord:
-            coord = self.svr.coord[::2]  # Use the numerical solver.
+            coord = self.svr.coord[self.svr.pt_plot]  # Use the numerical solver.
         self.coord = coord.copy()  # Make a copy; no write back to argument.
 
         # Determine the zone location and the Boolean selection arrays.

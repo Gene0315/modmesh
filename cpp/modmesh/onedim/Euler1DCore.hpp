@@ -92,6 +92,9 @@ public:
 
     double time_increment() const { return m_time_increment; }
 
+    SimpleArray<int> const & pt_plot() const { return m_pt_plot; }
+    SimpleArray<int> & pt_plot() { return m_pt_plot; }
+
     size_t ncoord() const { return m_coord.size(); }
     SimpleArray<double> const & coord() const { return m_coord; }
     SimpleArray<double> & coord() { return m_coord; }
@@ -139,6 +142,7 @@ public:
 private:
 
     real_type m_time_increment = 0;
+    SimpleArray<int> m_pt_plot;
     SimpleArray<double> m_coord;
     SimpleArray<double> m_cfl;
     SimpleArray<double> m_so0;

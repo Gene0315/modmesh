@@ -110,6 +110,10 @@ protected:
 
         (*this)
             .def_property_readonly(
+                "pt_plot",
+                [](wrapped_type & self)
+                { return to_ndarray(self.pt_plot()); })
+            .def_property_readonly(
                 "coord",
                 [](wrapped_type & self)
                 { return to_ndarray(self.coord()); })

@@ -49,6 +49,7 @@ void Euler1DCore::initialize_data(size_t ncoord)
     {
         throw std::invalid_argument("ncoord cannot be even");
     }
+    m_pt_plot = SimpleArray<int>(/*length*/ ((ncoord - 3) / 2));
     m_coord = SimpleArray<double>(/*length*/ ncoord);
     m_cfl = SimpleArray<double>(/*length*/ ncoord);
     m_so0 = SimpleArray<double>(/*shape*/ small_vector<size_t>{ncoord, NVAR});
